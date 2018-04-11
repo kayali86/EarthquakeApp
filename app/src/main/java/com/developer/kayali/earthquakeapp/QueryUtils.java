@@ -1,15 +1,11 @@
 package com.developer.kayali.earthquakeapp;
 
-import android.app.Activity;
-import android.content.Context;
+
 import android.text.TextUtils;
 import android.util.Log;
-import android.widget.Toast;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -132,6 +128,7 @@ public class QueryUtils {
     private static URL createUrl(String stringUrl) {
         URL url = null;
         try {
+            //String newUrl="https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&orderby=time&minmag=6&limit=10";
             url = new URL(stringUrl);
         } catch (MalformedURLException e) {
             Log.e(LOG_TAG, "Problem building the URL ", e);
@@ -179,6 +176,7 @@ public class QueryUtils {
                 inputStream.close();
             }
         }
+        Log.i(LOG_TAG, jsonResponse);
         return jsonResponse;
     }
 
